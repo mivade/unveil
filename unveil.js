@@ -48,6 +48,7 @@ function servePresentation(filename) {
     app.use('/js', express.static('node_modules/reveal.js/js'));
     app.use('/css', express.static('node_modules/reveal.js/css'));
     app.use('/lib', express.static('node_modules/reveal.js/lib'));
+    app.use('/plugin', express.static('node_modules/reveal.js/plugin'));
     app.listen(options.port);
 }
 

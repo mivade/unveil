@@ -15,6 +15,8 @@ mine.
 
 $$ a^c + b^c = c^2 $$
 
+---
+
 ## Some code
 
 ```
