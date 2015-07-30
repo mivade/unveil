@@ -20,6 +20,7 @@ var options = {
  * @param {string} filename - Markdown file to process
  */
 function processMarkdown(filename) {
+    console.log('Generating slides from ' + filename + '...');
     var template = Handlebars.compile(fs.readFileSync('template.html').toString());
     var slides = md.slidify(
         fs.readFileSync(filename).toString(), options.markdown);
@@ -37,11 +38,10 @@ function processMarkdown(filename) {
  * @param {string} filename - Markdown file to process
  */
 function servePresentation(filename) {
-    var slides = processMarkdown(filename);
     var app = express();
 
     app.get('/', function (req, res) {
-        res.send(slides);
+        res.send(processMarkdown(filename));
     });
     
     console.log('Serving on http://localhost:' + parseInt(options.port) + '...');
